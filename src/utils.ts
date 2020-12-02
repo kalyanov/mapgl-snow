@@ -12,7 +12,7 @@ function clamp(value: number, min: number, max: number): number {
     return Math.max(Math.min(value, max), min);
 }
 
-export function zoomToHeight(zoom: number, size: Vec2): number {
+export function zoomToHeight(zoom: number, size: number[]): number {
     return (
         (Math.max(size[1], 1000) * worldSize) /
         (2 * tileSizeZpt * Math.tan(degToRad(fov) / 2) * 2 ** zoom)
@@ -20,14 +20,14 @@ export function zoomToHeight(zoom: number, size: Vec2): number {
 }
 
 export interface MapState {
-    center: Vec3;
+    center: number[];
     zoom: number;
     rotation: number;
     pitch: number;
-    size: Vec2;
+    size: number[];
 }
 
-export function setEyePosition(out: Vec3, state: MapState): void {
+export function setEyePosition(out: number[], state: MapState): void {
     const { center, rotation, zoom, pitch, size } = state;
     const height = zoomToHeight(zoom, size);
     const offset = Math.max(height * Math.sin(pitch), 1);
@@ -38,7 +38,7 @@ export function setEyePosition(out: Vec3, state: MapState): void {
 
 const eye = [0, 0, 0];
 
-export function setVPMatrix(res: Mat4, state: MapState, near: number, far: number): void {
+export function setVPMatrix(res: Float32Array, state: MapState, near: number, far: number): void {
     const { center, size } = state;
     setEyePosition(eye, state);
     const correctedScreenHeight = Math.max(size[1], 1000);
@@ -48,7 +48,7 @@ export function setVPMatrix(res: Mat4, state: MapState, near: number, far: numbe
     vpFromTargetEyeView(res, fov, near, far, standardizedSize, center, eye, view);
 }
 
-export function projectGeoToMap(geoPoint: Vec2): Vec2 {
+export function projectGeoToMap(geoPoint: number[]): number[] {
     const worldHalf = worldSize / 2;
     const sin = Math.sin(degToRad(geoPoint[1]));
 

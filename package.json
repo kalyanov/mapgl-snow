@@ -2,7 +2,8 @@
     "name": "mapgl-snow",
     "version": "1.0.0",
     "description": "Plugin to add falling snow to your MapGL map",
-    "main": "dist/index.js",
+    "main": "dist/snow.js",
+    "typings": "dist/index.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Trufi/mapgl-snow.git"
@@ -12,9 +13,14 @@
         "email": "stevemyz@gmail.com",
         "url": "https://trufi.github.io/"
     },
+    "files": [
+        "dist/*"
+    ],
     "scripts": {
         "start": "npm run dev",
-        "build": "webpack --env production",
+        "build": "npm run build:bundle && npm run build:types",
+        "build:bundle": "webpack --env production",
+        "build:types": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --outDir dist",
         "build-demo": "webpack --env production --env demo",
         "dev": "webpack serve --env demo",
         "lint": "tslint 'src/**/*.ts'",

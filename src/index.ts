@@ -75,8 +75,8 @@ export class Snow {
     private buffer?: Buffer;
     private startTime: number;
     private changeSnowTime: number;
-    private prevCenter: Vec3;
-    private snowCenter: Vec3;
+    private prevCenter: number[];
+    private snowCenter: number[];
     private mapInited: boolean;
     private beforeInitedOptions: Partial<SnowOptions>;
     private snowLocalCenter: number[];
@@ -116,8 +116,8 @@ export class Snow {
         this.projectionMatrix = new Float32Array(mat4.create());
 
         const center = projectGeoToMap(map.getCenter());
-        this.prevCenter = vec3.clone(center);
-        this.snowCenter = vec3.clone(center);
+        this.prevCenter = center.slice();
+        this.snowCenter = center.slice();
         this.snowLocalCenter = [0, 0, 0];
 
         this.program = new ShaderProgram({
