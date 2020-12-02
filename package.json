@@ -13,6 +13,7 @@
         "email": "stevemyz@gmail.com",
         "url": "https://trufi.github.io/"
     },
+    "license": "MIT",
     "files": [
         "dist/*"
     ],
