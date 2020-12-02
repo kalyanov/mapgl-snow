@@ -19,7 +19,8 @@
         "dev": "webpack serve --env demo",
         "lint": "tslint 'src/**/*.ts'",
         "prettier": "prettier --check \"./**/*.{ts,tsx,js,json,html,css}\"",
-        "test": "npm run lint && npm run prettier && npm run build"
+        "test": "npm run lint && npm run prettier && npm run build",
+        "pages": "gh-pages -d . --src {index.html,dist/demo.js}"
     },
     "dependencies": {
         "@2gis/mapgl": "^1.5.1",
