@@ -19,14 +19,14 @@ import { load } from '@2gis/mapgl';
 import { Snow } from 'mapgl-snow';
 
 load().then((mapgl) => {
-    // Initalize MapGL map
+    // Initialize MapGL map
     const map = new mapgl.Map('map', {
         center: [82.920412, 55.030111],
         zoom: 15,
         key: 'YOUR MAPGL API KEY',
     });
 
-    // Inialize snow
+    // Initialize snow
     const snow = new Snow(map);
 
     // Change snow options on the fly
