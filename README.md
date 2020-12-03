@@ -2,6 +2,8 @@
 
 Plugin to add falling snow to your [2GIS MapGL map](https://docs.2gis.com/en/mapgl/overview).
 
+![snow-preview](snowpreview.png)
+
 [See a demo](https://trufi.github.io/mapgl-snow/)
 
 ## Using
