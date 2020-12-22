@@ -36,6 +36,28 @@ load().then((mapgl) => {
 });
 ```
 
+Install in browser:
+
+```html
+<html>
+    <head>
+        <script src="https://mapgl.2gis.com/api/js/v1"></script>
+        <script src="https://unpkg.com/mapgl-snow"></script>
+    <head>
+    <body>
+        <div id="map"></div>
+        <script>
+            const map = new mapgl.Map('map', {
+                center: [37.590783, 55.731226],
+                zoom: 13.48,
+                key: 'Your API key here',
+            });
+            const snow = new mapglSnow.Snow(map);
+        </script>
+    </body>
+</html>
+```
+
 Snow options have several fields:
 
 -   `minZoom` – the minimum zoom from which the snow will be shown

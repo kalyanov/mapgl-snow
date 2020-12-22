@@ -1,6 +1,6 @@
 {
     "name": "mapgl-snow",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Plugin to add falling snow to your MapGL map",
     "main": "dist/snow.js",
     "typings": "dist/index.d.ts",

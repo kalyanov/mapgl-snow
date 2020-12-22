@@ -29,6 +29,7 @@ module.exports = (env) => {
         entry: './src/index.ts',
 
         output: {
+            library: 'mapglSnow',
             filename: 'snow.js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/dist',
