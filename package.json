@@ -30,7 +30,7 @@
         "pages": "gh-pages -d . --src {index.html,dist/demo.js}"
     },
     "dependencies": {
-        "@2gis/mapgl": "^1.5.1",
+        "@2gis/mapgl": "^1.7.0",
         "tslib": "^2.0.3"
     },
     "devDependencies": {
