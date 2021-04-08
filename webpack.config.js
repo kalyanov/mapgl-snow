@@ -30,6 +30,7 @@ module.exports = (env) => {
 
         output: {
             library: 'mapglSnow',
+            libraryTarget: 'umd',
             filename: 'snow.js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/dist',
