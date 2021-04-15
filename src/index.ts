@@ -55,6 +55,10 @@ export interface SnowOptions {
     minZoom: number;
 }
 
+export interface SnowInitializeOptions {
+    skipWaitingForMapIdle: boolean;
+}
+
 export class Snow {
     private options: SnowOptions = {
         dispersion: 50,
@@ -81,7 +85,7 @@ export class Snow {
     private beforeInitedOptions: Partial<SnowOptions>;
     private snowLocalCenter: number[];
 
-    constructor(private map: Map) {
+    constructor(private map: Map, initializeOptions?: SnowInitializeOptions) {
         this.canvas = document.createElement('canvas') as HTMLCanvasElement;
         this.canvas.style.position = 'absolute';
         this.canvas.style.left = '0';
@@ -143,11 +147,16 @@ export class Snow {
         this.changeSnowTime = this.startTime = Date.now();
         this.beforeInitedOptions = {};
 
-        this.mapInited = false;
-        map.once('idle', () => {
+        if (initializeOptions && initializeOptions.skipWaitingForMapIdle) {
             this.mapInited = true;
             this.setOptions(this.beforeInitedOptions);
-        });
+        } else {
+            this.mapInited = false;
+            map.once('idle', () => {
+                this.mapInited = true;
+                this.setOptions(this.beforeInitedOptions);
+            });
+        }
 
         requestAnimationFrame(this.update);
     }
