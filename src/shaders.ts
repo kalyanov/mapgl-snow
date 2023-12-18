@@ -20,12 +20,7 @@ export const vertexShaderSource = `
         vec3 pos = u_local_center + a_position + u_common_velocity * u_time + shift;
 
         vec3 min = u_eye - u_size / 2.0;
-        vec3 position = vec3(
-            min.xy + mod(pos.xy - min.xy, u_size),
-
-            // The height of the snow cube is 2 times more than its width and height
-            min.z + mod(pos.z - min.z, u_size / 2.0)
-        );
+        vec3 position = min.xyz + mod(pos.xyz - min.xyz, u_size);
 
         gl_Position = u_projectionMatrix * vec4(position, 1.0);
 

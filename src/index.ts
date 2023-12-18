@@ -326,9 +326,7 @@ export class Snow {
         const position = [
             randBetween(-snowCubeSize, snowCubeSize),
             randBetween(-snowCubeSize, snowCubeSize),
-
-            // The height of the snow cube is 2 times more than its width and height
-            randBetween(-snowCubeSize, 0),
+            randBetween(-snowCubeSize, snowCubeSize),
         ];
 
         const velocity = [
