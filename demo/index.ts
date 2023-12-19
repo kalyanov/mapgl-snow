@@ -8,6 +8,8 @@ load().then((mapgl) => {
         zoom: 15,
         key: '042b5b75-f847-4f2a-b695-b5f58adc9dfd',
         zoomControl: false,
+        maxZoom: 25,
+        maxPitch: 70,
     }));
 
     const snow = ((window as any).snow = new Snow(map));
