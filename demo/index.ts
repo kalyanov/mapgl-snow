@@ -20,7 +20,7 @@ load().then((mapgl) => {
         velocityX: 0,
         velocityY: 0,
         velocityZ: 500,
-        particleNumber: 50000,
+        particleNumber: 100000,
         size: 6,
         color: [255, 255, 255, 1],
         minZoom: 9,
@@ -30,7 +30,7 @@ load().then((mapgl) => {
     gui.add(snowConfig, 'velocityX', -5000, 5000).onChange(() => snow.setOptions(snowConfig));
     gui.add(snowConfig, 'velocityY', -5000, 5000).onChange(() => snow.setOptions(snowConfig));
     gui.add(snowConfig, 'velocityZ', -5000, 5000).onChange(() => snow.setOptions(snowConfig));
-    gui.add(snowConfig, 'particleNumber', 0, 100000).onChange(() => snow.setOptions(snowConfig));
+    gui.add(snowConfig, 'particleNumber', 0, 200000).onChange(() => snow.setOptions(snowConfig));
     gui.add(snowConfig, 'size', 0, 50).onChange(() => snow.setOptions(snowConfig));
     gui.add(snowConfig, 'minZoom', 0, 20).onChange(() => snow.setOptions(snowConfig));
 
