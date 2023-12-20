@@ -104,14 +104,13 @@ export class Snow {
 
         const gl = (this.gl = this.canvas.getContext('webgl', {
             antialias: false,
-            premultipliedAlpha: false,
+            premultipliedAlpha: true,
             alpha: true,
         }) as WebGLRenderingContext);
         this.ext = {
             OES_vertex_array_object: gl.getExtension('OES_vertex_array_object'),
         };
 
-        gl.clearColor(1, 1, 1, 0);
         gl.enable(gl.CULL_FACE);
         gl.disable(gl.DEPTH_TEST);
         gl.enable(gl.BLEND);

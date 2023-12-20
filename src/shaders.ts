@@ -36,6 +36,6 @@ export const fragmentShaderSource = `
     void main() {
         float dist = distance(gl_PointCoord, vec2(0.5));
         float alpha = 1.0 - smoothstep(0.25, 0.5, dist);
-        gl_FragColor = vec4(u_color.rgb, u_color.a * alpha);
+        gl_FragColor = vec4(u_color.rgb * u_color.a * alpha, u_color.a * alpha);
     }
 `;
